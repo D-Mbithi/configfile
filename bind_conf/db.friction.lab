@@ -1,0 +1,23 @@
+$TTL     86400
+@             IN          SOA       localhost.  root.localhost (
+                                        2015101000    ; Serial
+                                        86400         ; Refresh
+                                        3600          ; Retry
+                                        604800        ; Expire
+                                        7200 )        ; Negative Cache TTL
+
+
+
+@               IN      NS      localhost.
+
+
+@                   IN      NS      192.168.100.26
+dhcp                IN      NS      192.168.100.26
+popos               IN      NS      192.168.100.2
+pve                 IN      NS      192.168.100.3
+nfs                 IN      NS      192.168.100.6
+docker              IN      NS      192.168.100.20
+dns1                IN      NS      192.168.100.26
+dns2                IN      NS      192.168.100.27
+spacewalk           IN      NS      192.168.100.28
+smtp                IN      NS      192.168.100.29

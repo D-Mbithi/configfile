@@ -1,0 +1,71 @@
+docker create \
+--name sonarr \
+-p 8989:8989 \
+-e PUID=1000 -e PGID=1000 \
+-e TZ="Africa/Nairobi" \
+-v /etc/localtime:/etc/localtime:ro \
+-v /home/dennis/.config/Sonarr:/config \
+-v /home/media/"TV Shows":/tv \
+-v /home/dennis/mediaserver/downloads:/downloads \
+--restart unless-stopped \
+linuxserver/sonarr
+
+
+docker create \
+--name=radarr \
+-p 7878:7878 \
+-e PGID=1000 -e PUID=1000  \
+-e TZ="Africa/Nairobi" \
+-v /home/dennis/.config/Radarr:/config \
+-v /home/dennis/mediaserver/downloads:/downloads \
+-v /home/dennis/Media/Movies:/movies \
+-v /etc/localtime:/etc/localtime:ro \
+--restart unless-stopped \
+linuxserver/radarr
+
+
+docker create \
+--name=jackett \
+-v /home/dennis/.config/Jackett:/config \
+-v /tmp/torrents/:/downloads \
+-e PGID=1000 -e PUID=1000 \
+-e TZ="Africa/Nairobi" \
+-v /etc/localtime:/etc/localtime:ro \
+-p 9117:9117 \
+--restart unless-stopped \
+linuxserver/jackett
+
+
+docker create \
+--name deluge \
+-e PUID=1000 -e PGID=1000 \
+-e TZ="Africa/Nairobi" \
+-e UMASK_SET=022 \
+-v /home/dennis/mediaserver/downloads:/downloads \
+-v /home/dennis/.config/Deluge:/config \
+-p 8112:8112 \
+--restart unless-stopped \
+linuxserver/deluge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

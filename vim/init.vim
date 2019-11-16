@@ -92,7 +92,8 @@ let g:neomake_python_enabled_makers = ['pylint']
 
 " NerdTree Config
 " -------------------------------
-nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+" nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
 

@@ -34,7 +34,9 @@ call plug#end()
 
 " General Configurations
 "--------------------------------
-let mapleader=","       " Map leader
+" change the leader key from "\" to ";" ("," is also popular)
+let mapleader=";"
+
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
@@ -55,10 +57,13 @@ if !&sidescrolloff
 endif
 set nostartofline
 
+" enable line and column display
+set ruler
 
 " Deoplete settings
 " -------------------------------
 let g:deoplete#enable_at_startup = 1
+
 
 
 " Configure jedi
@@ -96,7 +101,8 @@ let g:neomake_python_enabled_makers = ['pylint']
 nmap <C-n> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
-
+" Let quit work as expected if after entering :q the only window left open is NERD Tree itself
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Color scheme configure
 " --------------------------------
